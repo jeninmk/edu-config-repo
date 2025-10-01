@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:progressdb
+    username: sa
+    password:
+logging:
+  level:
+    org.springframework: DEBUG

@@ -1,4 +1,4 @@
-package org.com.education.course;
+package org.com.education;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
