@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/studentdb
+    username: student_user
+    password: student_pass
+logging:
+  level:
+    org.springframework: INFO

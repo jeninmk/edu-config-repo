@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gatewaydb
+    username: gateway_user
+    password: gateway_pass
+  cloud:
+    gateway:
+      routes:
+        - id: course-service
+          uri: http://course-service:8081
+          predicates:
+            - Path=/courses/**
+        - id: student-service
+          uri: http://student-service:8082
+          predicates:
+            - Path=/students/**
+        - id: progress-service
+          uri: http://progress-service:8083
+          predicates:
+            - Path=/progress/**
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your-email@gmail.com
+    password: your-app-password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+jwt:
+  secret: myProductionSecretKey
+  expiration: 86400000
+logging:
+  level:
+    org.springframework: INFO

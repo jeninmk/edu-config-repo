@@ -9,5 +9,5 @@ spring:
       server:
         git:
           uri: file:///${user.dir}/../config-repo
-          default-label: main
+          default-label: master
           clone-on-start: true
