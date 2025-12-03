@@ -3,7 +3,10 @@ package org.com.education.gateway.security;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
+<<<<<<< HEAD
 import org.springframework.security.core.GrantedAuthority;
+=======
+>>>>>>> 18b3f5cbe4e2b027e2f5f420a9624f9ff2fb6d3d
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -49,7 +52,10 @@ public class JwtUtil {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+<<<<<<< HEAD
         claims.put("roles", userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList());
+=======
+>>>>>>> 18b3f5cbe4e2b027e2f5f420a9624f9ff2fb6d3d
         return createToken(claims, userDetails.getUsername());
     }
 

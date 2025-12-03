@@ -1,5 +1,6 @@
 spring:
   datasource:
+<<<<<<< HEAD
     url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/gatewaydb}
     username: ${DATASOURCE_USERNAME:gateway_user}
     password: ${DATASOURCE_PASSWORD:gateway_pass}
@@ -41,6 +42,40 @@ eureka:
 jwt:
   secret: ${JWT_SECRET}
   expiration: ${JWT_EXPIRATION:86400000}
+=======
+    url: jdbc:postgresql://localhost:5432/gatewaydb
+    username: gateway_user
+    password: gateway_pass
+  cloud:
+    gateway:
+      routes:
+        - id: course-service
+          uri: http://course-service:8081
+          predicates:
+            - Path=/courses/**
+        - id: student-service
+          uri: http://student-service:8082
+          predicates:
+            - Path=/students/**
+        - id: progress-service
+          uri: http://progress-service:8083
+          predicates:
+            - Path=/progress/**
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your-email@gmail.com
+    password: your-app-password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+jwt:
+  secret: myProductionSecretKey
+  expiration: 86400000
+>>>>>>> 18b3f5cbe4e2b027e2f5f420a9624f9ff2fb6d3d
 logging:
   level:
     org.springframework: INFO
