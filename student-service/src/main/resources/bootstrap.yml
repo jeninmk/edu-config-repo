@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: student-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+      profile: dev              # pick dev or prod
+      fail-fast: true
+    zipkin:
+      base-url: http://localhost:9411
+
+# Distributed Tracing Configuration
+zipkin:
+  base-url: http://localhost:9411
+
+# Logging Configuration for Trace IDs
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.sleuth: DEBUG

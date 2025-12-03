@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/progress_db
+    username: progress_user
+    password: progress_password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+
+server:
+  port: 8081
+
+logging:
+  level:
+    org.springframework: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate: DEBUG

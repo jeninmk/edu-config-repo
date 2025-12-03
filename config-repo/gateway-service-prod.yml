@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/gatewaydb}
+    username: ${DATASOURCE_USERNAME:gateway_user}
+    password: ${DATASOURCE_PASSWORD:gateway_pass}
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: course-service
+          uri: ${COURSE_SERVICE_URL:http://course-service:8081}
+          predicates:
+            - Path=/courses/**
+        - id: student-service
+          uri: ${STUDENT_SERVICE_URL:http://student-service:8082}
+          predicates:
+            - Path=/students/**
+        - id: progress-service
+          uri: ${PROGRESS_SERVICE_URL:http://progress-service:8083}
+          predicates:
+            - Path=/progress/**
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_SMTP_AUTH:true}
+          starttls:
+            enable: ${MAIL_SMTP_STARTTLS_ENABLE:true}
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL}
+    fetch-registry: true
+    register-with-eureka: true
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION:86400000}
+logging:
+  level:
+    org.springframework: INFO

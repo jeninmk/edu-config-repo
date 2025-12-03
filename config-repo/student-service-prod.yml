@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/studentdb}
+    username: ${DATASOURCE_USERNAME:student_user}
+    password: ${DATASOURCE_PASSWORD:student_pass}
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL}
+    fetch-registry: true
+    register-with-eureka: true
+logging:
+  level:
+    org.springframework: INFO

@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/course_db
+    username: postgres
+    password: postgres123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # JMS Configuration for ActiveMQ
+  jms:
+    activemq:
+      broker-url: tcp://localhost:61616
+      user: admin
+      password: admin
+
+  # Distributed Tracing Configuration
+  zipkin:
+    base-url: http://localhost:9411
+
+server:
+  port: 8080
+
+# JMS Producer Configuration
+jms:
+  course:
+    topic: course-events
+
+# Logging Configuration for Trace IDs
+logging:
+  level:
+    root: INFO
+    org.springframework.jms: DEBUG
+    org.springframework.cloud.sleuth: DEBUG

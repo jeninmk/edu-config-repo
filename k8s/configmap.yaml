@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: edu-platform-config
+  namespace: edu-platform
+data:
+  # Spring profiles
+  spring-profiles-active: "prod"
+  
+  # Database configuration
+  postgres-host: "postgres"
+  postgres-port: "5432"
+  postgres-user: "postgres"
+  
+  # Eureka configuration (optional - for Spring Cloud compatibility)
+  eureka-server-url: "http://eureka-server:8761/eureka/"
+  
+  # Service URLs (using Kubernetes DNS)
+  gateway-service-url: "http://gateway-service:8080"
+  student-service-url: "http://student-service:8080"
+  course-service-url: "http://course-service:8080"
+  progress-service-url: "http://progress-service:8080"

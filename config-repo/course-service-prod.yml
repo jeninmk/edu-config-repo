@@ -2,10 +2,19 @@ spring:
   application:
     name: course-service
   datasource:
-    url: jdbc:mysql://mysql:3306/coursedb
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: course
-    password: course123
+    url: ${DATASOURCE_URL:jdbc:mysql://mysql:3306/coursedb}
+    driver-class-name: ${DATASOURCE_DRIVER:com.mysql.cj.jdbc.Driver}
+    username: ${DATASOURCE_USERNAME:course}
+    password: ${DATASOURCE_PASSWORD:course123}
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: ${JPA_DDL_AUTO:update}
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL}
+    fetch-registry: true
+    register-with-eureka: true
+logging:
+  level:
+    org.springframework: INFO

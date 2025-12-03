@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/progress_db
+    username: postgres
+    password: postgres123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+
+  # JMS Configuration for ActiveMQ
+  jms:
+    activemq:
+      broker-url: tcp://activemq:61616
+      user: admin
+      password: admin
+
+  # Distributed Tracing Configuration
+  zipkin:
+    base-url: http://zipkin:9411
+
+server:
+  port: 8081
+
+# JMS Listener Configuration
+jms:
+  course:
+    topic: course-events
+
+logging:
+  level:
+    org.springframework: INFO
+    org.hibernate.SQL: INFO
+    org.springframework.web: INFO
+    org.hibernate: INFO
+    org.springframework.jms: INFO
+    org.springframework.cloud.sleuth: INFO

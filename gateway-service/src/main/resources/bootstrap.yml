@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+      profile: dev
+      fail-fast: false
+server:
+  port: 8081
